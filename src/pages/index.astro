@@ -1,0 +1,54 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/ui/Header.astro";
+import Footer from "../components/ui/Footer.astro";
+import Hero from "../components/sections/Hero.astro";
+import Menu from "../components/sections/Menu.astro";
+import Gallery from "../components/sections/Gallery.astro";
+import Reservations from "../components/sections/Reservations.astro";
+import Contact from "../components/sections/Contact.astro";
+
+// SEO Local y Meta-información (Nicho: Gastronomía / Restaurantes)
+const seoData = {
+  title: "TodoNerds Restó | Hamburguesas Premium y Birra Artesanal en Córdoba",
+  description:
+    "Descubre la verdadera experiencia gourmet en [Nombre del Local]. Carne premium, tragos de autor y el mejor ambiente de Córdoba. ¡Reserva tu mesa hoy!",
+  image: "/og-foodie.jpg", // Imagen que evite el rebote (Food Porn)
+};
+---
+
+<Layout {...seoData}>
+  <!-- Schema.org específico para Restaurantes/Gastronomía -->
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "TodoNerds Restó",
+      "description": "Hamburguesería de autor con productos locales y selección de cervezas artesanales.",
+      "image": "/og-foodie.jpg",
+      "servesCuisine": "Americana, Gourmet, Craft Beer",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle de los Sabores 123",
+        "addressLocality": "Tu Ciudad",
+        "addressRegion": "Provincia/Estado"
+      },
+      "telephone": "+541112345678",
+      "priceRange": "$$",
+      "acceptsReservations": "true",
+      "areaServed": "Tu Ciudad y alrededores"
+    }
+  </script>
+
+  <Header />
+
+  <main>
+    <Hero />
+    <Menu />
+    <Gallery />
+    <Reservations />
+    <Contact />
+  </main>
+
+  <Footer />
+</Layout>

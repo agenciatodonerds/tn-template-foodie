@@ -1,0 +1,84 @@
+﻿---
+// Importamos las fuentes directamente desde node_modules
+import "@fontsource-variable/playfair-display";
+import "@fontsource-variable/inter";
+import "../styles/base.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title = "TodoNerds Restó | Experiencia Gastronómica",
+  description = "Descubra los mejores sabores en [Nombre Ciudad]. Reservas online, menú digital y delivery directo aquí.",
+  image = "/og-image.jpg", // Debes colocar una imagen de 1200x630 en /public
+  canonicalURL = Astro.url.href,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Canonical SEO -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / Facebook / Instagram -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+    <!-- Sitemap & Robots (Crucial para SEO Local) -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Astro View Transitions (Opcional pero recomendado para suavidad) -->
+    <script is:inline>
+      // Script simple para detectar el scroll y cambiar el header más adelante
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        if (window.scrollY > 50) {
+          header?.classList.add("header-scrolled");
+        } else {
+          header?.classList.remove("header-scrolled");
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <slot />
+
+    <style is:global>
+      /* Optimizaciones de accesibilidad */
+      :focus-visible {
+        @apply outline-2 outline-offset-2 outline-primary;
+      }
+
+      /* Animación para el Header al hacer scroll */
+      .header-scrolled {
+        @apply bg-surface-50/95 backdrop-blur-md shadow-md py-3;
+      }
+    </style>
+  </body>
+</html>

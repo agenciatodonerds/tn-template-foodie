@@ -1,0 +1,33 @@
+/* src/styles/base.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brand-primary: 230 126 34; /* RGB del naranja */
+  }
+
+  html {
+    @apply scroll-smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-surface-50 text-secondary font-body overflow-x-hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    @apply font-heading tracking-tight;
+  }
+}
+
+/* Mejora el renderizado de imágenes de platos */
+img {
+  content-visibility: auto;
+}

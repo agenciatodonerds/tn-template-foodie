@@ -1,0 +1,249 @@
+---
+import {
+  UtensilsCrossed,
+  MapPin,
+  Phone,
+  Mail,
+  Instagram,
+  Facebook,
+  Linkedin,
+  ArrowUp,
+  ChefHat,
+  Star,
+} from "lucide-react";
+
+const links = [
+  { name: "INICIO", href: "#inicio" },
+  { name: "MENÚ", href: "#menu" },
+  { name: "GALERÍA", href: "#galeria" },
+  { name: "RESERVAS", href: "#reservas" },
+];
+
+const highlights = [
+  "CORTES DE AUTOR",
+  "BURGER GOURMET",
+  "MIXOLOGÍA CLÁSICA",
+  "VINOS SELECCIONADOS",
+];
+---
+
+<footer
+  class="relative bg-surface-800 border-t border-white/5 pt-20 pb-12 overflow-hidden"
+>
+  <!-- DECORACIÓN AMBIENTAL (GUSTO NOCTURNO) -->
+  <div
+    class="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px] pointer-events-none -translate-x-1/2 -translate-y-1/2"
+  >
+  </div>
+  <div
+    class="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none"
+  >
+  </div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 text-center lg:text-left"
+    >
+      <!-- COLUMNA 1: IDENTIDAD GOURMET -->
+      <div class="flex flex-col items-center lg:items-start gap-8">
+        <a href="#inicio" class="flex items-center gap-4 group">
+          <div
+            class="p-3 bg-primary rounded-2xl transition-all duration-500 group-hover:rotate-[15deg] group-hover:scale-110 shadow-xl shadow-primary/20"
+          >
+            <UtensilsCrossed className="text-white w-6 h-6" />
+          </div>
+          <div class="flex flex-col text-left">
+            <span
+              class="text-white font-heading text-3xl leading-none uppercase tracking-tighter"
+              >TodoNerds</span
+            >
+            <span
+              class="text-primary text-[10px] uppercase tracking-[0.5em] font-bold"
+              >Restó & Grill</span
+            >
+          </div>
+        </a>
+        <p
+          class="text-white text-[13px] leading-relaxed max-w-xs mx-auto lg:mx-0 font-body uppercase tracking-wider"
+        >
+          Una propuesta culinaria que rinde homenaje al producto local y a la
+          técnica impecable. Ven a descubrir el verdadero sabor del origen.
+        </p>
+
+        <!-- REDES SOCIALES (ESTILO MINIMAL) -->
+        <div class="flex gap-4">
+          <a
+            href="#"
+            class="p-3.5 bg-white/5 rounded-full border border-white/10 text-white hover:text-primary hover:border-primary transition-all hover:-translate-y-1 shadow-lg"
+            aria-label="Instagram"
+          >
+            <Instagram className="w-4 h-4" />
+          </a>
+          <a
+            href="#"
+            class="p-3.5 bg-white/5 rounded-full border border-white/10 text-white hover:text-primary hover:border-primary transition-all hover:-translate-y-1 shadow-lg"
+            aria-label="Facebook"
+          >
+            <Facebook className="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+
+      <!-- COLUMNA 2: NAVEGACIÓN -->
+      <div class="flex flex-col items-center lg:items-start gap-8">
+        <h4
+          class="text-white font-heading font-bold uppercase tracking-[0.3em] text-[15px] flex items-center gap-3"
+        >
+          <div class="w-2 h-2 bg-primary rounded-full"></div> Explora
+        </h4>
+        <nav>
+          <ul class="flex flex-col gap-5">
+            {
+              links.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="text-white/80 hover:text-primary text-xs transition-colors font-bold tracking-[0.2em] font-body"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+
+      <!-- COLUMNA 3: SELECCIÓN DE LA CASA -->
+      <div class="flex flex-col items-center lg:items-start gap-8">
+        <h4
+          class="text-white font-heading font-bold uppercase tracking-[0.3em] text-[15px] flex items-center gap-3"
+        >
+          <ChefHat className="w-4 h-4 text-primary" /> Nuestra Mesa
+        </h4>
+        <ul
+          class="flex flex-col gap-5 text-white/80 text-[12px] font-bold tracking-[0.2em] font-body"
+        >
+          {
+            highlights.map((item) => (
+              <li class="hover:text-white transition-colors cursor-default">
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- COLUMNA 4: RESERVAS Y CONTACTO -->
+      <div class="flex flex-col items-center lg:items-start gap-8">
+        <h4
+          class="text-white font-heading font-bold uppercase tracking-[0.3em] text-[15px] flex items-center gap-3"
+        >
+          <Star className="w-4 h-4 text-primary fill-primary" /> Encuéntranos
+        </h4>
+        <ul class="flex flex-col gap-6 text-white/80 text-sm font-body">
+          <li
+            class="flex flex-col items-center lg:items-start gap-2 group cursor-pointer"
+          >
+            <div
+              class="flex items-center gap-4 group-hover:text-primary transition-colors text-xs font-bold tracking-widest uppercase"
+            >
+              <MapPin className="text-primary w-4 h-4 shrink-0" />
+              <span>DISTRITO GOURMET, CALLE 123</span>
+            </div>
+          </li>
+          <li
+            class="flex flex-col items-center lg:items-start gap-2 group cursor-pointer"
+          >
+            <div
+              class="flex items-center gap-4 group-hover:text-primary transition-colors text-xs font-bold tracking-widest uppercase"
+            >
+              <Phone className="text-primary w-4 h-4 shrink-0" />
+              <span>+54 3541 123456</span>
+            </div>
+          </li>
+          <li
+            class="flex flex-col items-center lg:items-start gap-2 group cursor-pointer"
+          >
+            <div
+              class="flex items-center gap-4 group-hover:text-primary transition-colors text-xs font-bold tracking-widest uppercase"
+            >
+              <Mail className="text-primary w-4 h-4 shrink-0" />
+              <span>RESERVAS@TODONERDS.PRO</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SECCIÓN INFERIOR EDITORIAL -->
+    <div
+      class="mt-24 pt-10 border-t border-white/5 flex flex-col items-center text-center gap-8"
+    >
+      <p
+        class="text-[9px] text-surface-50/60 uppercase tracking-[0.5em] font-bold max-w-2xl font-body leading-loose"
+      >
+        © {new Date().getFullYear()} TodoNerds. Todos los derechos reservados. Prohibida
+        la reproducción técnica total o parcial.
+      </p>
+
+      <!-- CRÉDITO DE AGENCIA (TODO NERDS AGENCY) -->
+      <a
+        href="https://todonerdsagency.web.app"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group flex flex-col items-center gap-2 opacity-30 hover:opacity-100 transition-opacity"
+      >
+        <span class="text-[8px] font-bold tracking-[0.6em] text-surface-50/60">
+          Desarrollado por
+        </span>
+        <div class="flex items-center gap-2">
+          <span
+            class="text-base font-heading text-white uppercase tracking-[0.2em]"
+          >
+            Todo<span class="text-primary">Nerds</span>
+          </span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- BOTÓN VOLVER ARRIBA (PILL SHAPE) -->
+  <a
+    href="#inicio"
+    id="back-to-top"
+    class="fixed bottom-8 right-8 z-40 p-4 bg-primary text-white rounded-full transition-all duration-500 scale-0 translate-y-10 shadow-2xl shadow-primary/40 hover:scale-110 active:scale-95 border border-white/20"
+    aria-label="VOLVER AL INICIO"
+  >
+    <ArrowUp className="w-5 h-5" />
+  </a>
+</footer>
+
+<script>
+  const backToTop = document.getElementById("back-to-top");
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (window.scrollY > 800) {
+        backToTop?.classList.remove("scale-0", "translate-y-10");
+        backToTop?.classList.add("scale-100", "translate-y-0");
+      } else {
+        backToTop?.classList.add("scale-0", "translate-y-10");
+        backToTop?.classList.remove("scale-100", "translate-y-0");
+      }
+    },
+    { passive: true },
+  );
+</script>
+
+<style>
+  footer {
+    background-image: radial-gradient(
+      circle at 2px 2px,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 0
+    );
+    background-size: 30px 30px;
+  }
+</style>
