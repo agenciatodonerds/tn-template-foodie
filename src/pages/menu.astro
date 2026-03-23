@@ -1,0 +1,219 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/ui/Header.astro";
+import Footer from "../components/ui/Footer.astro";
+import MenuItem from "../components/ui/MenuItem.astro";
+import { Image } from "astro:assets";
+import { Sparkles, ArrowLeft, Utensils } from "lucide-react";
+
+// Importación de imágenes estratégicas
+import imgEntradas from "../assets/menu/entradas-destacada.jpg";
+import imgPrincipales from "../assets/menu/plato-principal-1.jpg";
+
+const seoData = {
+  title: "LA CARTA COMPLETA | TODONERDS RESTÓ",
+  description:
+    "EXPLORA NUESTRA SELECCIÓN GASTRONÓMICA: DESDE CORTES MADURADOS HASTA COCTELERÍA DE AUTOR.",
+};
+---
+
+<Layout {...seoData}>
+  <Header />
+
+  <main class="bg-surface-50 pt-32 pb-20">
+    <div class="container mx-auto px-6">
+      <!-- HEADER DE CARTA -->
+      <div class="text-center mb-20 animate-reveal">
+        <a
+          href="/tn-template-foodie"
+          class="inline-flex items-center gap-2 text-primary font-bold text-[10px] tracking-[0.4em] mb-8 hover:-translate-x-2 transition-transform uppercase"
+        >
+          <ArrowLeft className="w-4 h-4" /> VOLVER AL INICIO
+        </a>
+        <h1
+          class="text-6xl md:text-8xl font-heading text-secondary uppercase tracking-tighter mb-6"
+        >
+          NUESTRA <span class="text-primary font-serif">CARTA.</span>
+        </h1>
+        <div class="w-20 h-1 bg-primary mx-auto rounded-full mb-8"></div>
+        <p
+          class="text-secondary/50 max-w-2xl mx-auto uppercase tracking-widest text-xs leading-loose font-bold"
+        >
+          EXPERIENCIA GASTRONÓMICA DE ORIGEN LOCAL. PRODUCTOS FRESCOS Y TÉCNICA
+          RIGUROSA.
+        </p>
+      </div>
+
+      <!-- BENTO GRID SYSTEM -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- CATEGORÍA 1: ENTRADAS (Col 4) -->
+        <div class="lg:col-span-4 flex flex-col gap-6 animate-reveal">
+          <div
+            class="relative h-64 rounded-[2.5rem] overflow-hidden group shadow-2xl"
+          >
+            <Image
+              src={imgEntradas}
+              alt="Entradas"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-secondary/90 to-transparent flex items-end p-8"
+            >
+              <h2
+                class="text-white font-heading text-4xl uppercase tracking-tighter"
+              >
+                ENTRADAS
+              </h2>
+            </div>
+          </div>
+          <MenuItem
+            title="BURRATA GOURMET"
+            price="$8.500"
+            description="TOMATES CONFITADOS, PESTO DE ALBAHACA ORGÁNICA Y REDUCCIÓN DE ACETO."
+            tags={["Vegetariano", "Sinfónía"]}
+          />
+          <MenuItem
+            title="EMPANADAS DE LANGOSTINO"
+            price="$4.200"
+            description="MASA ARTESANAL DE CÚRCUMA, RELLENO DE LANGOSTINOS AL AJILLO."
+          />
+        </div>
+
+        <!-- CATEGORÍA 2: PLATOS PRINCIPALES (Col 8) -->
+        <div
+          class="lg:col-span-8 grid md:grid-cols-2 gap-6 animate-reveal"
+          style="animation-delay: 200ms;"
+        >
+          <div
+            class="md:col-span-2 relative h-80 rounded-[2.5rem] overflow-hidden group shadow-2xl"
+          >
+            <Image
+              src={imgPrincipales}
+              alt="Principales"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/20 to-transparent flex flex-col justify-end p-10"
+            >
+              <div class="flex items-center gap-3 text-primary mb-2">
+                <Sparkles className="w-5 h-5 fill-primary" />
+                <span class="text-[10px] font-bold tracking-[0.4em] uppercase"
+                  >RECOMENDADO DEL CHEF</span
+                >
+              </div>
+              <h2
+                class="text-white font-heading text-5xl md:text-6xl uppercase tracking-tighter leading-none"
+              >
+                PLATOS PRINCIPALES
+              </h2>
+            </div>
+          </div>
+
+          <MenuItem
+            isFeatured={true}
+            title="OJO DE BIFE MADURADO"
+            price="$18.500"
+            description="500GR DE CARNE ANGUS CON 21 DÍAS DE MADURACIÓN, PAPAS TRUFADAS."
+            tags={["Signature", "Slow Food"]}
+          />
+          <MenuItem
+            title="SMASH BURGER DOBLE"
+            price="$11.200"
+            description="BLEND DE ROAST BEEF Y PICAÑA, DOBLE QUESO CHEDDAR, PAN BRIOCHE."
+            tags={["Nuestra Especialidad"]}
+          />
+          <MenuItem
+            title="RISOTTO DE HONGOS"
+            price="$12.800"
+            description="ARROZ CARNAROLI, SELECCIÓN DE HONGOS DE PINO Y ACEITE DE TRUFA NEGRA."
+          />
+          <MenuItem
+            title="SALMÓN ROSADO"
+            price="$16.900"
+            description="SALMÓN A LA PLANCHA, PURÉ DE ARVEJAS CON MENTA Y VEGETALES ASADOS."
+          />
+        </div>
+
+        <!-- CATEGORÍA 3: BARRA & POSTRES (Col 12 - Grid 3 cols) -->
+        <div
+          class="lg:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 animate-reveal"
+          style="animation-delay: 400ms;"
+        >
+          <div class="flex flex-col gap-6">
+            <div
+              class="p-8 bg-secondary rounded-[2.5rem] flex flex-col items-center text-center text-white border border-white/5 shadow-2xl"
+            >
+              <Utensils className="w-12 h-12 text-primary mb-4" />
+              <h2 class="font-heading text-3xl uppercase tracking-widest mb-2">
+                BEBIDAS
+              </h2>
+              <p
+                class="text-white/40 text-[9px] font-bold uppercase tracking-[0.3em]"
+              >
+                CÓCTELES & VINOS
+              </p>
+            </div>
+            <MenuItem
+              title="NEGRONI DE AUTOR"
+              price="$5.200"
+              description="GIN LOCAL, VERMOUTH ROSSO, CAMPARI Y PIEL DE NARANJA AMARGA."
+            />
+            <MenuItem
+              title="MALBEC DE RESERVA"
+              price="$14.000"
+              description="BOTELLA DE LA CASA SELECCIONADA ESPECIALMENTE."
+            />
+          </div>
+
+          <div class="md:col-span-2 grid md:grid-cols-2 gap-6">
+            <div
+              class="md:col-span-2 p-8 bg-white border border-surface-200 rounded-[2.5rem] flex justify-between items-center group overflow-hidden"
+            >
+              <div>
+                <h2
+                  class="font-heading text-4xl text-secondary uppercase tracking-tighter"
+                >
+                  EL FINAL DULCE
+                </h2>
+                <p
+                  class="text-primary text-[10px] font-bold uppercase tracking-[0.5em] mt-2 underline"
+                >
+                  NUESTRAS ESPECIALIDADES EN POSTRES
+                </p>
+              </div>
+              <Sparkles
+                className="text-surface-100 w-20 h-20 group-hover:text-primary/10 transition-colors"
+              />
+            </div>
+            <MenuItem
+              title="VOLCÁN DE CACAO"
+              price="$6.500"
+              description="CHOCOLATE AMARGO 70%, CORAZÓN FUNDIDO Y HELADO DE VAINILLA."
+            />
+            <MenuItem
+              title="TARTA DE MANZANA"
+              price="$5.800"
+              description="MANZANAS ASADAS AL HORNO DE LEÑA, CANELA Y CREMA DOBLE."
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .animate-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes reveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
